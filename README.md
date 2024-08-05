@@ -23,18 +23,28 @@
 
 ## Users can:
 
--**Sign Up for the app using their full name, email, and password to create a personalized account.** -**Log In using their email and password to securely access their account.** -**View an optimized layout that adjusts to different screen sizes, ensuring a great experience on any device.** -**Experience interactive elements with hover states, enhancing navigation and engagement.** -**Navigate easily between the Home, Movies, TV Series, and Bookmarked Shows pages.** -**Add or Remove Bookmarks from movies and TV series, allowing users to save their favorites.** -**Search for specific shows on any page, making it simple to find relevant content quickly.**
+- **Sign Up for the app using their full name, email, and password to create a personalized account.**
+- **Log In using their email and password to securely access their account.** 
+- **View an optimized layout that adjusts to different screen sizes, ensuring a great experience on any device.** 
+- **Experience interactive elements with hover states, enhancing navigation and engagement.**
+- **Navigate easily between the Home, Movies, TV Series, and Bookmarked Shows pages.**
+- **Add or Remove Bookmarks from movies and TV series, allowing users to save their favorites.**
+- **Search for specific shows on any page, making it simple to find relevant content quickly.**
 
 ## Technologies Used
 
--**Front-End**: Built with React for a modern, dynamic design, styled using Tailwind CSS. -**State Management**: Utilized Redux Toolkit for efficient state management and a seamless user experience. -**API Integration**: Integrated with The Movie Database (TMDB) API for fetching movie and TV series data. -**Backend**: Developed using Node.js and Express.js, with MongoDB as the database for storing user data. -**Tools**: Used Postman for testing and verifying API endpoints and database interactions.
+- **FrontEnd:**Built with React for a modern, dynamic design, styled using Tailwind CSS.
+- **State Management:** Utilized Redux Toolkit for efficient state management and a seamless user experience.
+- **API Integration:** Integrated with The Movie Database (TMDB) API for fetching movie and TV series data.
+- **Backend:** Developed using Node.js and Express.js, with MongoDB as the database for storing user data.
+- **Tools:**Used Postman for testing and verifying API endpoints and database interactions.
 
 ## How to Run
 
 1. **Clone the Repository:**
 
    ```bash
-   git clone gh repo clone sumit-nagrikar/cinebuzz
+   git clone gh repo clone Piyush0924/The-Entertainment-App/
    ```
 
 2. **Install the dependencies:**
@@ -49,24 +59,24 @@
 
    ```bash
    # Run the express server
-   npm run start
+   npm run dev 
 
    # Run the react frontend
-   npm run start
+   npm run dev
    ```
 
    **OR**
 
    ```bash
    # Run both frontend and backend concurrently
-   npm run dev
+   npm run both
    ```
 
 4. **Open the following URLs in your browser:** http://localhost:5173 for the frontend and http://localhost:8000 for the backend.
 
 ## API Documentation
 
-Explore the API endpoints and understand how to interact with the cinebuzzz backend.
+Explore the API endpoints and understand how to interact with the Entertainment backend.
 
 - **Postman Documentation:** [https://documenter.getpostman.com/view/36361121/2sA3rwMZRb](https://documenter.getpostman.com/view/36361121/2sA3rwMZRb)
 
