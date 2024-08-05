@@ -47,17 +47,17 @@ function Tvshow({ title, fetchURL }) {
     }
   };
 
-    // Function to load more TV shows (pagination)
-    const loadMoreShows = () => {
-      setPage((prevPage) => prevPage + 1); // Increment the page number
-    };
+  // Function to load more TV shows (pagination)
+  const loadMoreShows = () => {
+    setPage((prevPage) => prevPage + 1); // Increment the page number
+  };
 
   return (
     <>
       {/* Section title */}
       <h2 className='text-white font-bold md:text-xl p-4'>{title}</h2>
       <div className='relative flex flex-wrap flex-grow items-center p-4 '>
-        <div id='slider'className="flex flex-wrap gap-4"></div>
+        <div id='slider' className="flex flex-wrap gap-4"></div>
         {/* Container for TV shows slider */}
         <div id='slider'>
           {tvshows.map((item) => (
@@ -96,22 +96,19 @@ function Tvshow({ title, fetchURL }) {
               {/* TV show details and type */}
               <div className='flex flex-col mt-2 text-sm text-white mx-2'>
                 <div className='flex items-center gap-2'>
-                  <div className="gap-4">{item.release_date} </div>
-                  {item.media_type === 'movie' ? (
-                    <>
-                      <MdLocalMovies className='text-white' />
-                      <span className='text-white'>Movie</span>
-                    </>
-                  ) : (
-                    <>
+                  <div className="gap-4">{item.release_date } </div>
+                  {/* Check if media_type exists and render accordingly */}
+              
+                    <div >
                       <PiTelevisionFill className='text-white' />
                       <span className='text-white'>TV</span>
-                    </>
-                  )}
+                    </div>
+
+                  
                 </div>
-                  <div className='truncate'>{item.title || item.name}</div>
+                <div className='truncate'>{item.title || item.name}</div>
               </div>
-              
+              <span>{console.log(tvshows)}</span>
             </div>
           ))}
         </div>
