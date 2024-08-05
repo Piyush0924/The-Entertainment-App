@@ -23,13 +23,7 @@
 
 ## Users can:
 
--Sign Up for the app using their full name, email, and password to create a personalized account.
--Log In using their email and password to securely access their account.
--View an optimized layout that adjusts to different screen sizes, ensuring a great experience on any device.
--Experience interactive elements with hover states, enhancing navigation and engagement.
--Navigate easily between the Home, Movies, TV Series, and Bookmarked Shows pages.
--Add or Remove Bookmarks from movies and TV series, allowing users to save their favorites.
--Search for specific shows on any page, making it simple to find relevant content quickly.
+-**Sign Up for the app using their full name, email, and password to create a personalized account.** -**Log In using their email and password to securely access their account.** -**View an optimized layout that adjusts to different screen sizes, ensuring a great experience on any device.** -**Experience interactive elements with hover states, enhancing navigation and engagement.** -**Navigate easily between the Home, Movies, TV Series, and Bookmarked Shows pages.** -**Add or Remove Bookmarks from movies and TV series, allowing users to save their favorites.** -**Search for specific shows on any page, making it simple to find relevant content quickly.**
 
 ## Technologies Used
 
