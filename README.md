@@ -33,7 +33,7 @@
 
 ## Technologies Used
 
-- **Front-End:**Built with React for a modern, dynamic design, styled using Tailwind CSS.
+- **FrontEnd:**Built with React for a modern, dynamic design, styled using Tailwind CSS.
 - **State Management:** Utilized Redux Toolkit for efficient state management and a seamless user experience.
 - **API Integration:** Integrated with The Movie Database (TMDB) API for fetching movie and TV series data.
 - **Backend:** Developed using Node.js and Express.js, with MongoDB as the database for storing user data.
@@ -44,7 +44,7 @@
 1. **Clone the Repository:**
 
    ```bash
-   git clone gh repo clone sumit-nagrikar/cinebuzz
+   git clone gh repo clone Piyush0924/The-Entertainment-App/
    ```
 
 2. **Install the dependencies:**
@@ -59,17 +59,17 @@
 
    ```bash
    # Run the express server
-   npm run start
+   npm run dev 
 
    # Run the react frontend
-   npm run start
+   npm run dev
    ```
 
    **OR**
 
    ```bash
    # Run both frontend and backend concurrently
-   npm run dev
+   npm run both
    ```
 
 4. **Open the following URLs in your browser:** http://localhost:5173 for the frontend and http://localhost:8000 for the backend.
