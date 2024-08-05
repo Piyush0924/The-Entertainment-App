@@ -6,6 +6,7 @@ import { MdLocalMovies } from 'react-icons/md'; // Import specific icons from re
 import { PiTelevisionFill } from 'react-icons/pi';
 import { IoBookmarkOutline, IoBookmark } from 'react-icons/io5';
 import { addMovie, removeMovie } from '../redux/savedMoviesSlice'; // Import Redux actions
+import toast, { Toaster } from 'react-hot-toast';
 
 function Row({ title, fetchURL }) {
   const [movies, setMovies] = useState([]); // State to hold fetched movies
@@ -41,8 +42,10 @@ function Row({ title, fetchURL }) {
     const isSaved = savedMovies.some((savedMovie) => savedMovie.id === movie.id); // Check if the movie is already saved
     if (isSaved) {
       dispatch(removeMovie(movie.id)); // Remove movie from saved movies if it is already saved
+      toast.error("Bookmark removed");
     } else {
       dispatch(addMovie(movie)); // Add movie to saved movies if it is not saved
+      toast.success("Bookmark added");
     }
   };
 
@@ -70,31 +73,33 @@ function Row({ title, fetchURL }) {
                   alt={item.title || item.name}
                 />
               )}
-              <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
-                <p className='text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
+              <div className='absolute top-0 left-0 w-full h-full text-white text-xl lg:text-2xl'>
+                {/* <p className='text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
                   {item.title || item.name}
-                </p>
-                <p onClick={(e) => { e.stopPropagation(); saveShow(item); }}>
+                </p> */}
+                <p onClick={(e) => { e.stopPropagation(); saveShow(item);
+                 }}>
                   {savedMovies.some((savedMovie) => savedMovie.id === item.id) ? (
-                    <IoBookmark className='absolute top-4 right-6 text-gray-300' />
+                    <IoBookmark className='absolute top-4 right-6 bg-gray-500 text-gray-950  rounded-full p-1' />
                   ) : (
-                    <IoBookmarkOutline className='absolute top-4 right-6 text-gray-300' />
+                    <IoBookmarkOutline className='absolute top-4 right-6 bg-gray-500 text-gray-950 rounded-full p-1' />
+
                   )}
                 </p>
               </div>
               <div className='flex flex-col mt-2 text-md text-white mx-2'>
-                <div className='flex items-center gap-2 text-sm text-gray-600'>
+                <div className='flex items-center gap-2 text-xs text-gray-400'>
                   <div>{item.media_type === 'movie' ? item.release_date : item.first_air_date}</div>
                   {item.media_type === 'movie' ? (
-                    <>
+                    <div className='gap-0 flex items-center'>
                       <MdLocalMovies  />
                       <span >Movie</span>
-                    </>
+                    </div>
                   ) : (
-                    <>
-                      <PiTelevisionFill className='text-white' />
-                      <span className='text-white'>TV Series</span>
-                    </>
+                    <div className='gap-0 flex items-center'>
+                      <PiTelevisionFill className='text-gray-400' />
+                      <span className='text-gray-400'>TV Series</span>
+                      </div>
                   )}
                 </div>
                 <div className='truncate'>{item.title || item.name}</div>
