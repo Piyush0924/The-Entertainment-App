@@ -13,7 +13,7 @@ export const options = {
   headers: {
     accept: 'application/json', // Specifies that the response should be in JSON format
     // eslint-disable-next-line no-undef
-    Authorization: `Bearer ${process.env.AUTHORIZATION}` // Bearer token for authentication
+    Authorization: `Bearer ${process.env.AUTHORIZATION_TOKEN}` // Bearer token for authentication
   }
 };
 
