@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
 
 // eslint-disable-next-line no-undef
-const key = '${process.env.API_KEY}'//from the tmdb after the signup
+const key = '${ import.meta.env.API_KEY}'//from the tmdb after the signup
 //for authorization
 export {key} 
 
