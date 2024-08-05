@@ -112,6 +112,7 @@ const Login = ({ onLogin }) => {
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)} // Update state on input change
                                 className="w-full px-3 py-2 bg-[#10141E] text-white border border-gray-700 rounded focus:outline-none focus:border-red-500"
+                                autoComplete='username'
                                 required
                             />
                         </div>
@@ -125,6 +126,7 @@ const Login = ({ onLogin }) => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)} // Update state on input change
                             className="w-full px-3 py-2 bg-[#10141E] text-white border border-gray-700 rounded focus:outline-none focus:border-red-500"
+                            autoComplete='email'
                             required
                         />
                     </div>
