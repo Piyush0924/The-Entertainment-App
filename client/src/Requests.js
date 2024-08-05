@@ -1,11 +1,7 @@
-// Import dotenv to load environment variables
-import dotenv from 'dotenv';
 
-// Load environment variables from .env file
-dotenv.config({ path: './.env' });
 
 // eslint-disable-next-line no-undef
-const key = '${ import.meta.env.API_KEY}'//from the tmdb after the signup
+const key = import.meta.env.API_KEY//from the tmdb after the signup
 //for authorization
 export {key} 
 

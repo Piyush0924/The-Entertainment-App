@@ -1,9 +1,3 @@
-// Import dotenv to load environment variables
-import dotenv from 'dotenv';
-
-// Load environment variables from .env file
-dotenv.config({ path: './.env' });
-
 // Define the API endpoint for user-related operations
 export const API_END_POINT = 'https://the-entertainment-app.onrender.com/api/v1/user';
 
@@ -12,8 +6,7 @@ export const options = {
   method: 'GET', // HTTP method for the request
   headers: {
     accept: 'application/json', // Specifies that the response should be in JSON format
-    // eslint-disable-next-line no-undef
-    Authorization: 'Bearer ${import.meta.env.AUTHORIZATION_TOKEN}' // Bearer token for authentication
+    Authorization: `Bearer ${import.meta.env.VITE_AUTHORIZATION_TOKEN}` // Bearer token for authentication
   }
 };
 
