@@ -13,7 +13,7 @@ function Home() {
       <Row rowID='2' title='Recommended for you' fetchURL={requests.requestTopRatedmovie} />
       
       {/* Top Rated section - shows top-rated movies or TV shows */}
-      <Row rowID='3' title='Top Rated' fetchURL={requests.requestTopRatedtv} />
+      {/* <Row rowID='3' title='Top Rated' fetchURL={requests.requestTopRatedtv} /> */}
     </>
   );
 }

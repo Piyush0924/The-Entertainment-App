@@ -53,14 +53,16 @@ function Movie({ title, fetchURL }) {
     setPage((prevPage) => prevPage + 1); // Increment the page number
   };
 
+  // Filter the movies list to only include movies
+  const filteredMovies = movies.filter((item) => item.media_type === "movie");
+
   return (
     <>
       <h2 className='text-white font-bold md:text-xl p-4'>{title}</h2> {/* Render the list title */}
       <div className='relative flex flex-wrap flex-grow items-center p-4 '>
-      <div id='slider'className="flex flex-wrap gap-4">
-        
-          {/* Map over the movies array to render movie cards */}
-          {movies.map((item) => (
+        <div id='slider' className="flex flex-wrap gap-4">
+          {/* Map over the filteredMovies array to render movie cards */}
+          {filteredMovies.map((item) => (
             <div
               key={item.id} // Use movie ID as a unique key
               className='w-full sm:w-[280px] md:w-[310px] lg:w-[335px] gap-4 inline-block cursor-pointer relative p-2'
@@ -99,9 +101,9 @@ function Movie({ title, fetchURL }) {
                   <span className='text-white'>Movie</span>
                 </div>
               </div>
-                <ul className='text-white flex gap-4 mr-4'>
-                  <li>{item?.title || item?.name}</li> {/* Render movie title or name */}
-                </ul>
+              <ul className='text-white flex gap-4 mr-4'>
+                <li>{item?.title || item?.name}</li> {/* Render movie title or name */}
+              </ul>
             </div>
           ))}
         </div>
@@ -115,7 +117,6 @@ function Movie({ title, fetchURL }) {
           {loading ? 'Loading...' : 'Load More'} {/* Conditionally render button text based on loading state */}
         </button>
       </div>
-     
     </>
   );
 }

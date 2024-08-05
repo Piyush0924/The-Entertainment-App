@@ -52,6 +52,9 @@ function Tvshow({ title, fetchURL }) {
     setPage((prevPage) => prevPage + 1); // Increment the page number
   };
 
+  // Filter the tvshows list to only include TV shows
+  const filteredShows = tvshows.filter((item) => item.media_type === "tv");
+
   return (
     <>
       {/* Section title */}
@@ -60,7 +63,7 @@ function Tvshow({ title, fetchURL }) {
         <div id='slider' className="flex flex-wrap gap-4"></div>
         {/* Container for TV shows slider */}
         <div id='slider'>
-          {tvshows.map((item) => (
+          {filteredShows.map((item) => (
             <div
               key={item.id}
               className='w-full sm:w-[280px] md:w-[340px] lg:w-[330px] gap-4 inline-block cursor-pointer relative p-2'
@@ -96,19 +99,13 @@ function Tvshow({ title, fetchURL }) {
               {/* TV show details and type */}
               <div className='flex flex-col mt-2 text-sm text-white mx-2'>
                 <div className='flex items-center gap-2'>
-                  <div className="gap-4">{item.release_date } </div>
+                  <div className="gap-4">{item.release_date} </div>
                   {/* Check if media_type exists and render accordingly */}
-              
-                    <div >
-                      <PiTelevisionFill className='text-white' />
-                      <span className='text-white'>TV</span>
-                    </div>
-
-                  
+                  <PiTelevisionFill className='text-white' />
+                  <span className='text-white'>TV</span>
                 </div>
                 <div className='truncate'>{item.title || item.name}</div>
               </div>
-              <span>{console.log(tvshows)}</span>
             </div>
           ))}
         </div>
