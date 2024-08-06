@@ -101,7 +101,6 @@ function Tvshow({ title, fetchURL }) {
                 </p>
               </div>
               {/* TV show details and type */}
-<<<<<<< HEAD
               <div className='flex mt-2 text-sm text-white justify-between'>
               <div className='break-words'>{item.title || item.name}</div>
                 <div className='flex items-center text-xs'>
@@ -122,16 +121,6 @@ function Tvshow({ title, fetchURL }) {
                 </div>
                   
                   {/* <span>{console.log("series",tvshows)}</span> */}
-=======
-              <div className='flex flex-col mt-2 text-sm text-white mx-2'>
-                <div className='flex items-center gap-2'>
-                  <div className="gap-4">{item.release_date} </div>
-                  {/* Check if media_type exists and render accordingly */}
-                  <PiTelevisionFill className='text-white' />
-                  <span className='text-white'>TV</span>
-                </div>
-                <div className='truncate'>{item.title || item.name}</div>
->>>>>>> 6deb50a98dc4541bdcc54aaa1d5dc88dfe6781c1
               </div>
             </div>
           ))}
