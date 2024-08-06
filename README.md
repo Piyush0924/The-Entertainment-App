@@ -1,23 +1,26 @@
 # THE ENTERTAINMENT APP
 
-<img src="https://cinebuzzz.netlify.app/logo1.png" alt="Cinebuzzz Logo" width="200"/>
 
 ## Deployment URL
 
-- **Front-End: [https://cinebuzzz.netlify.app](https://cinebuzzz.netlify.app)**
-- **Back-End: [https://cinebuzz-of1h.onrender.com](https://cinebuzz-of1h.onrender.com)**
+- **Front-End: [https://mirajshow.netlify.app](https://mirajshow.netlify.app)**
+- **Back-End: [https://the-entertainment-app.onrender.com](https://the-entertainment-app.onrender.com)**
 
-  The Entertainment App is designed for movie and TV lovers to easily find and save their favorite content. Why is it useful? It helps users quickly discover new shows and movies, streamlining their search for great entertainment. How is it useful? With an easy-to-use interface, it allows users to bookmark their favorites and get personalized recommendations, making their viewing experience smoother and more enjoyable.
+  The Entertainment App is designed for movie and TV lovers to easily find and save their favorite content. **Why is it useful?** It helps users quickly discover new shows and movies, streamlining their search for great entertainment. **How is it useful?** With an easy-to-use interface, it allows users to bookmark their favorites and get personalized recommendations, making their viewing experience smoother and more enjoyable.
 
 ## Screenshots
 
 ### Large Device
+![large-device](https://mirajshow.netlify.app/large-device1.png)
+![large-device](https://mirajshow.netlify.app/large-device2.png)
+![large-device](https://mirajshow.netlify.app/large-device3.png)
 
-![large-device](https://cinebuzzz.netlify.app/large-device.png)
 
 ### Small Device
 
-<img src="https://cinebuzzz.netlify.app/small-device.png" alt="Home" height="500">
+<img src="https://mirajshow.netlify.app/small-device1.png" alt="Home" height="500">
+<img src="https://mirajshow.netlify.app/small-device2.png" alt="Home" height="500">
+<img src="https://mirajshow.netlify.app/small-device3.png" alt="Home" height="500">
 
 ### Features:
 
@@ -33,11 +36,11 @@
 
 ## Technologies Used
 
-- **FrontEnd:**Built with React for a modern, dynamic design, styled using Tailwind CSS.
+- **FrontEnd:** Built with React for a modern, dynamic design, styled using Tailwind CSS.
 - **State Management:** Utilized Redux Toolkit for efficient state management and a seamless user experience.
 - **API Integration:** Integrated with The Movie Database (TMDB) API for fetching movie and TV series data.
 - **Backend:** Developed using Node.js and Express.js, with MongoDB as the database for storing user data.
-- **Tools:**Used Postman for testing and verifying API endpoints and database interactions.
+- **Tools:** Used Postman for testing and verifying API endpoints and database interactions.
 
 ## How to Run
 
@@ -51,8 +54,8 @@
 
    ```bash
    npm i
-   cd frontend && npm i
-   cd backend && npm i
+   cd client && npm i
+   cd server && npm i
    ```
 
 3. **Running the Project Locally:** Navigate to the project's root directory and run the following commands
