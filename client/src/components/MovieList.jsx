@@ -3,13 +3,12 @@ import MovieCard from './MovieCard'; // Import the MovieCard component
 
 const MovieList = ({ title, movies, searchMovie = false }) => { 
   // Destructure props: title, movies, and searchMovie (default to false)
-  console.log("Movies:", movies); // Log movies for debugging
 
   return (
     <div className='px-8'>
       {/* Render the list title with conditional styling based on searchMovie prop */}
-      <h1 className={`${searchMovie ? "text-black" : "text-white"} text-3xl py-3 `}>
-        {title}
+      <h1 className= "text-gray-200 text-2xl py-3">
+       Search results for {title}
       </h1>
       {/* Create a horizontally scrollable container for the movie cards */}
       <div className='flex overflow-x-auto no-scrollbar custom-scrollbar-hide cursor-pointer'>

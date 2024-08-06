@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PiTelevisionFill } from 'react-icons/pi';
 import { IoBookmarkOutline, IoBookmark } from "react-icons/io5";
 import { addMovie, removeMovie } from '../redux/savedMoviesSlice';
+import toast from 'react-hot-toast';
 
 function Tvshow({ title, fetchURL }) {
   const [tvshows, setTVshows] = useState([]); // State to hold fetched TV shows
@@ -15,6 +16,7 @@ function Tvshow({ title, fetchURL }) {
   const dispatch = useDispatch(); // Hook to dispatch Redux actions
   const savedMovies = useSelector((state) => state.savedMovies.savedMovies); // Access saved movies from Redux store
 
+  console.log("tvseries",);
   // Function to fetch TV shows from API
   const fetchShows = async () => {
     setLoading(true); // Set loading state to true
@@ -42,8 +44,10 @@ function Tvshow({ title, fetchURL }) {
     const isSaved = savedMovies.some((savedShow) => savedShow.id === show.id);
     if (isSaved) {
       dispatch(removeMovie(show.id)); // Remove from saved movies
+      toast.error("Bookmark Added")
     } else {
       dispatch(addMovie(show)); // Add to saved movies
+      toast.success("Bookmark removed")
     }
   };
 
@@ -81,35 +85,39 @@ function Tvshow({ title, fetchURL }) {
                 />
               )}
               {/* Overlay with TV show details and save button */}
-              <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
-                <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
+              <div className='absolute top-0 left-0 w-full h-full  text-white text-xl lg:text-2xl'>
+                {/* <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
                   {item.title || item.name}
-                </p>
+                </p> */}
                 <p onClick={(e) => { e.stopPropagation(); saveShow(item); }}>
                   {savedMovies.some((savedShow) => savedShow.id === item.id) ? (
-                    <IoBookmark className='absolute top-4 right-6 text-gray-300' />
+                    <IoBookmark className='absolute top-4 right-6 bg-gray-500 text-gray-950  rounded-full p-1' />
                   ) : (
-                    <IoBookmarkOutline className='absolute top-4 right-6 text-gray-300' />
+                    <IoBookmarkOutline className='absolute top-4 right-6 bg-gray-500 text-gray-950  rounded-full p-1' />
                   )}
                 </p>
               </div>
               {/* TV show details and type */}
-              <div className='flex flex-col mt-2 text-sm text-white mx-2'>
-                <div className='flex items-center gap-2'>
-                  <div className="gap-4">{item.release_date} </div>
+              <div className='flex mt-2 text-sm text-white justify-between'>
+              <div className='break-words'>{item.title || item.name}</div>
+                <div className='flex items-center text-xs'>
+                  {/* <div>{item.release_date} </div> */}
                   {item.media_type === 'movie' ? (
                     <>
-                      <MdLocalMovies className='text-white' />
-                      <span className='text-white'>Movie</span>
+                    
+                      {/* not working
+                      <MdLocalMovies className='text-white text-sm' />
+                      <span className='text-white'>Movie</span> */}
                     </>
                   ) : (
                     <>
-                      <PiTelevisionFill className='text-white' />
-                      <span className='text-white'>TV</span>
+                      <PiTelevisionFill className='text-white text-sm' />
+                      <span className='text-white '>TV Series</span>
                     </>
                   )}
                 </div>
-                  <div className='truncate'>{item.title || item.name}</div>
+                  
+                  {/* <span>{console.log("series",tvshows)}</span> */}
               </div>
               
             </div>
