@@ -56,7 +56,7 @@ const SavedShow = () => {
             <div
               key={item.id} // Unique key for each movie item
               className='w-full sm:w-[280px] md:w-[280px] lg:w-[330px] inline-block cursor-pointer relative p-2'
-              onClick={() => handleClick(item.id,item.mediaType)} // Navigate on click
+              onClick={() => handleClick(item.id,item.media_type || item.mediaType)} // Navigate on click
             >
               <img
                 className='w-full h-48 block'
