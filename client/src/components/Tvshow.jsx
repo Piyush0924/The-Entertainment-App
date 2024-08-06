@@ -51,20 +51,23 @@ function Tvshow({ title, fetchURL }) {
     }
   };
 
-    // Function to load more TV shows (pagination)
-    const loadMoreShows = () => {
-      setPage((prevPage) => prevPage + 1); // Increment the page number
-    };
+  // Function to load more TV shows (pagination)
+  const loadMoreShows = () => {
+    setPage((prevPage) => prevPage + 1); // Increment the page number
+  };
+
+  // Filter the tvshows list to only include TV shows
+  const filteredShows = tvshows.filter((item) => item.media_type === "tv");
 
   return (
     <>
       {/* Section title */}
       <h2 className='text-white font-bold md:text-xl p-4'>{title}</h2>
       <div className='relative flex flex-wrap flex-grow items-center p-4 '>
-        <div id='slider'className="flex flex-wrap gap-4"></div>
+        <div id='slider' className="flex flex-wrap gap-4"></div>
         {/* Container for TV shows slider */}
         <div id='slider'>
-          {tvshows.map((item) => (
+          {filteredShows.map((item) => (
             <div
               key={item.id}
               className='w-full sm:w-[280px] md:w-[340px] lg:w-[330px] gap-4 inline-block cursor-pointer relative p-2'
@@ -98,6 +101,7 @@ function Tvshow({ title, fetchURL }) {
                 </p>
               </div>
               {/* TV show details and type */}
+<<<<<<< HEAD
               <div className='flex mt-2 text-sm text-white justify-between'>
               <div className='break-words'>{item.title || item.name}</div>
                 <div className='flex items-center text-xs'>
@@ -118,8 +122,17 @@ function Tvshow({ title, fetchURL }) {
                 </div>
                   
                   {/* <span>{console.log("series",tvshows)}</span> */}
+=======
+              <div className='flex flex-col mt-2 text-sm text-white mx-2'>
+                <div className='flex items-center gap-2'>
+                  <div className="gap-4">{item.release_date} </div>
+                  {/* Check if media_type exists and render accordingly */}
+                  <PiTelevisionFill className='text-white' />
+                  <span className='text-white'>TV</span>
+                </div>
+                <div className='truncate'>{item.title || item.name}</div>
+>>>>>>> 6deb50a98dc4541bdcc54aaa1d5dc88dfe6781c1
               </div>
-              
             </div>
           ))}
         </div>
