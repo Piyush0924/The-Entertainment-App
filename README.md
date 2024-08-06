@@ -1,6 +1,5 @@
 # THE ENTERTAINMENT APP
 
-
 ## Deployment URL
 
 - **Front-End: [https://mirajshow.netlify.app](https://mirajshow.netlify.app)**
@@ -11,10 +10,10 @@
 ## Screenshots
 
 ### Large Device
-![large-device](https://mirajshow.netlify.app/large-device1.png)
-![large-device](https://mirajshow.netlify.app/large-device2.png)
-![large-device](https://mirajshow.netlify.app/large-device3.png)
 
+![large-device1](https://mirajshow.netlify.app/large-device1.png)
+![large-device2](https://mirajshow.netlify.app/large-device2.png)
+![large-device3](https://mirajshow.netlify.app/large-device3.png)
 
 ### Small Device
 
@@ -27,8 +26,8 @@
 ## Users can:
 
 - **Sign Up for the app using their full name, email, and password to create a personalized account.**
-- **Log In using their email and password to securely access their account.** 
-- **View an optimized layout that adjusts to different screen sizes, ensuring a great experience on any device.** 
+- **Log In using their email and password to securely access their account.**
+- **View an optimized layout that adjusts to different screen sizes, ensuring a great experience on any device.**
 - **Experience interactive elements with hover states, enhancing navigation and engagement.**
 - **Navigate easily between the Home, Movies, TV Series, and Bookmarked Shows pages.**
 - **Add or Remove Bookmarks from movies and TV series, allowing users to save their favorites.**
@@ -62,7 +61,7 @@
 
    ```bash
    # Run the express server
-   npm run dev 
+   npm run dev
 
    # Run the react frontend
    npm run dev
