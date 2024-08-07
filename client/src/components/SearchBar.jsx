@@ -27,7 +27,9 @@ const SearchBar = () => {
     
             // API request to fetch search results
             const res = await axios.get(`${SEARCH_MOVIE_URL}${searchMovie}&include_adult=false&language=en-US&page=1`, config);
+            
             const movies = res?.data?.results; // Extract movie results from the response
+            // console.log("res",res,res.data,res.data.results);
     
             // Dispatch action to store search results in Redux
             dispatch(setSearchMovieDetails({ searchMovie, movies }));

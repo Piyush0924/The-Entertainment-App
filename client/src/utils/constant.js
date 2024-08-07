@@ -1,4 +1,5 @@
 // Define the API endpoint for user-related operations
+// export const API_END_POINT = 'http://localhost:8000/api/v1/user';
 export const API_END_POINT = 'https://the-entertainment-app.onrender.com/api/v1/user';
 
 // Configuration options for API requests

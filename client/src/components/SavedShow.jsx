@@ -35,7 +35,7 @@ const SavedShow = () => {
     dispatch(removeMovie(movieId)); // Dispatch the removeMovie action
     toast.error("Bookmark removed")
   };
-  console.log("savedshows:",savedMovies);
+
 
   return (
     <>

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MdLocalMovies } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { PiTelevisionFill } from 'react-icons/pi';
 import { IoBookmarkOutline, IoBookmark } from "react-icons/io5";
@@ -16,7 +15,6 @@ function Tvshow({ title, fetchURL }) {
   const dispatch = useDispatch(); // Hook to dispatch Redux actions
   const savedMovies = useSelector((state) => state.savedMovies.savedMovies); // Access saved movies from Redux store
 
-  console.log("tvseries",);
   // Function to fetch TV shows from API
   const fetchShows = async () => {
     setLoading(true); // Set loading state to true
@@ -104,23 +102,11 @@ function Tvshow({ title, fetchURL }) {
               <div className='flex mt-2 text-sm text-white justify-between'>
               <div className='break-words'>{item.title || item.name}</div>
                 <div className='flex items-center text-xs'>
-                  {/* <div>{item.release_date} </div> */}
-                  {item.media_type === 'movie' ? (
-                    <>
-                    
-                      {/* not working
-                      <MdLocalMovies className='text-white text-sm' />
-                      <span className='text-white'>Movie</span> */}
-                    </>
-                  ) : (
-                    <>
+                 
                       <PiTelevisionFill className='text-white text-sm' />
                       <span className='text-white '>TV Series</span>
-                    </>
-                  )}
-                </div>
                   
-                  {/* <span>{console.log("series",tvshows)}</span> */}
+                </div>
               </div>
             </div>
           ))}
