@@ -42,10 +42,10 @@ function Tvshow({ title, fetchURL }) {
     const isSaved = savedMovies.some((savedShow) => savedShow.id === show.id);
     if (isSaved) {
       dispatch(removeMovie(show.id)); // Remove from saved movies
-      toast.error("Bookmark Added")
+      toast.error("Bookmark removed")
     } else {
       dispatch(addMovie(show)); // Add to saved movies
-      toast.success("Bookmark removed")
+      toast.success("Bookmark Added")
     }
   };
 

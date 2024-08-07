@@ -7,10 +7,12 @@ import { MdLocalMovies } from 'react-icons/md'; // Import movie icon
 import { PiTelevisionFill } from 'react-icons/pi'; // Import TV icon
 import { addMovie, removeMovie } from '../redux/savedMoviesSlice'; // Import actions for saving movies
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 // MovieCard component definition
 const MovieCard = ({ posterPath, movieId, title, backdropPath, mediaType }) => {
   const dispatch = useDispatch(); // Get the dispatch function from Redux
+  const navigate = useNavigate();
   const savedMovies = useSelector((state) => state.savedMovies.savedMovies); // Get saved movies from Redux state
 
   // Skip rendering if both posterPath and backdropPath are null
@@ -20,8 +22,10 @@ const MovieCard = ({ posterPath, movieId, title, backdropPath, mediaType }) => {
 
   // Function to handle opening the movie detail modal
   const handleOpen = () => {
+    console.log('Opening movie detail modal');
     dispatch(getId(movieId)); // Dispatch action to set the current movie ID
     dispatch(setOpen(true)); // Dispatch action to open the movie detail modal
+    navigate(`/${mediaType}/${movieId}`);
   };
 
   // Function to save or remove a movie from the saved list

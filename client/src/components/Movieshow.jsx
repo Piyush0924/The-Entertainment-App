@@ -44,10 +44,10 @@ function Movie({ title, fetchURL }) {
     const isSaved = savedMovies.some((savedMovie) => savedMovie.id === movie.id); // Check if the movie is already saved
     if (isSaved) {
       dispatch(removeMovie(movie.id)); // Remove movie from saved list if already saved
-      toast.error("Bookmark Added")
+      toast.error("Bookmark removed")
     } else {
       dispatch(addMovie(movie)); // Add movie to saved list if not saved
-      toast.success("Bookmark removed")
+      toast.success("Bookmark added")
     }
   };
 
