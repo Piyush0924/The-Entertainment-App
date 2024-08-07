@@ -1,17 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit'; // Import configureStore from Redux Toolkit
-import userReducer from './userSlice'; // Import userReducer from userSlice
-import movieReducer from './movieSlice'; // Import movieReducer from movieSlice
-import searchReducer from './searchSlice'; // Import searchReducer from searchSlice
-import savedMoviesReducer from './savedMoviesSlice'; // Import savedMoviesReducer from savedMoviesSlice
+// src/redux/store.js
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './userSlice';
+import movieReducer from './movieSlice';
+import searchReducer from './searchSlice';
+import savedMoviesReducer from './savedMoviesSlice';
+import fetchDataReducer from './fetchDataSlice'; // Import the fetchData reducer
 
-// Create and configure the Redux store
 const store = configureStore({
   reducer: {
-    app: userReducer, // Reducer for user-related state
-    movie: movieReducer, // Reducer for movie-related state
-    searchMovie: searchReducer, // Reducer for search movie-related state
-    savedMovies: savedMoviesReducer, // Reducer for saved movies state
-  }
+    app: userReducer,
+    movie: movieReducer,
+    searchMovie: searchReducer,
+    savedMovies: savedMoviesReducer,
+    data: fetchDataReducer, // Add the fetchData reducer here
+  },
 });
 
-export default store; // Export the configured store
+export default store;

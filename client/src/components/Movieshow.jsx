@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'; // Import hooks for Redu
 import { MdLocalMovies } from 'react-icons/md'; // Import movie icon from react-icons
 import { IoBookmarkOutline, IoBookmark } from 'react-icons/io5'; // Import bookmark icons from react-icons
 import { addMovie, removeMovie } from '../redux/savedMoviesSlice'; // Import Redux actions
+import toast from 'react-hot-toast';
 
 function Movie({ title, fetchURL }) {
   const [movies, setMovies] = useState([]); // State to hold fetched movies
@@ -43,8 +44,10 @@ function Movie({ title, fetchURL }) {
     const isSaved = savedMovies.some((savedMovie) => savedMovie.id === movie.id); // Check if the movie is already saved
     if (isSaved) {
       dispatch(removeMovie(movie.id)); // Remove movie from saved list if already saved
+      toast.error("Bookmark Added")
     } else {
       dispatch(addMovie(movie)); // Add movie to saved list if not saved
+      toast.success("Bookmark removed")
     }
   };
 
@@ -82,28 +85,29 @@ function Movie({ title, fetchURL }) {
                   alt={item.title}
                 />
               )}
-              <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
-                <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
-                  {item?.title} {/* Render movie title */}
-                </p>
+              <div className='absolute top-0 left-0 w-full h-full  text-white text-xl lg:text-2xl'>
+                {/* <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
+                  {item?.title}
+                </p> */}
                 <p onClick={(e) => { e.stopPropagation(); saveMovie(item); }}> {/* Handle save movie click */}
                   {/* Conditionally render bookmark icon based on save state */}
                   {savedMovies.some((savedMovie) => savedMovie.id === item.id) ? (
-                    <IoBookmark className='absolute top-4 right-6 text-gray-300' />
+                    <IoBookmark className='absolute top-4 right-6 bg-gray-500 text-gray-950  rounded-full p-1' />
                   ) : (
-                    <IoBookmarkOutline className='absolute top-4 right-6 text-gray-300' />
+                    <IoBookmarkOutline className='absolute top-4 right-6 bg-gray-500 text-gray-950  rounded-full p-1' />
                   )}
                 </p>
               </div>
-              <div className='flex items-center mt-2'>
-                <div className='flex items-center gap-2'>
-                  <MdLocalMovies className='text-white ' /> {/* Render movie icon */}
-                  <span className='text-white'>Movie</span>
+              <div className='flex mt-2 justify-between text-sm'>
+              <ul className='text-white break-words'>
+                  <li>{item?.title || item?.name}</li> {/* Render movie title or name */}
+                </ul>
+                <div className='flex text-white place-items-center text-xs'>
+                  <MdLocalMovies className='text-sm'/> {/* Render movie icon */}
+                  <span>Movie</span>
                 </div>
               </div>
-              <ul className='text-white flex gap-4 mr-4'>
-                <li>{item?.title || item?.name}</li> {/* Render movie title or name */}
-              </ul>
+                
             </div>
           ))}
         </div>

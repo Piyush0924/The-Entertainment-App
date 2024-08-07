@@ -6,8 +6,9 @@ import { PiTelevisionFill } from 'react-icons/pi';
 import { IoBookmarkOutline, IoBookmark } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMovie, removeMovie } from '../redux/savedMoviesSlice';
+import toast from 'react-hot-toast';
 
-const Trending = ({ title, fetchURL, rowID }) => {
+const Trending = ({ title, trendingData, rowID }) => {
   // State to store the fetched movies
   const [movies, setMovies] = useState([]);
   // Hooks for navigation and dispatching actions
@@ -21,10 +22,8 @@ const Trending = ({ title, fetchURL, rowID }) => {
     // Function to fetch movies data from the API
     const fetchData = async () => {
       try {
-        // Make API request to get movies data
-        const response = await axios.get(fetchURL);
         // Map and prepare the results from the API response
-        const results = response.data.results.map((item) => ({
+        const results = trendingData.map((item) => ({
           ...item,
           media_type: item.media_type || 'movie', // Default media type to 'movie' if not present
         }));
@@ -35,7 +34,7 @@ const Trending = ({ title, fetchURL, rowID }) => {
     };
 
     fetchData(); // Call fetchData when component mounts or fetchURL changes
-  }, [fetchURL]);
+  }, [trendingData]);
 
   // Navigate to the details page of the clicked movie/show
   const handleClick = (id, mediaType) => {
@@ -47,8 +46,10 @@ const Trending = ({ title, fetchURL, rowID }) => {
     const isSaved = savedMovies.some((savedMovie) => savedMovie.id === movie.id);
     if (isSaved) {
       dispatch(removeMovie(movie.id)); // Remove from saved movies if already saved
+      toast.error("Bookmark removed");
     } else {
       dispatch(addMovie(movie)); // Add to saved movies if not already saved
+      toast.success("Bookmark added");
     }
   };
 
@@ -100,25 +101,25 @@ const Trending = ({ title, fetchURL, rowID }) => {
                 </div>
               )}
               {/* Overlay with movie details and bookmark option */}
-              <div className='absolute top-0 left-0 w-full h-full text-white'>
-                <p className='white-space-normal text-sm md:text-md lg:text-xl font-bold flex justify-center items-center h-full text-center'>
+              <div className='absolute top-0 left-0 w-full h-full text-white text-md md:text-xl lg:text-2xl'>
+                <p className='white-space-normal font-bold flex justify-center items-center h-full text-center'>
                   {/* {item.title || item.name} */}
                 </p>
-                <p onClick={(e) => { e.stopPropagation(); saveShow(item); }}>
+                <div onClick={(e) => { e.stopPropagation(); saveShow(item); }}>
                   {savedMovies.some((savedMovie) => savedMovie.id === item.id) ? (
                   <div className="absolute top-4 right-6 bg-gray-500 rounded-full p-1">
-                    <IoBookmark className="text-black" />
+                    <IoBookmark className="text-gray-950 " />
                   </div>
                   ) : (
                     <div className="absolute top-4 right-6 bg-gray-200 rounded-full p-1">
-                      <IoBookmarkOutline className="text-black" />
+                      <IoBookmarkOutline className="text-gray-950" />
                     </div>
                   )}
-                </p>
+                </div>
               </div>
               {/* Movie details */}
-              <div className='flex flex-col mt-2 text-md text-white'>
-                <div className='flex gap-2 text-sm text-gray-600 '>
+              <div className='flex flex-col mt-2 text-lg text-white'>
+                <div className='flex gap-2 text-sm text-gray-400 '>
                   <div>{item.media_type === 'movie' ? item.release_date : item.first_air_date}</div>      
                   {item.media_type === 'movie' ? (
                     <div  className='flex items-center'>

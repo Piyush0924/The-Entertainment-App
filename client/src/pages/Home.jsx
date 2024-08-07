@@ -1,21 +1,35 @@
-import React from 'react';
-import Row from '../components/Row'; // Import the Row component for displaying a list of movies or TV shows
-import requests from '../Requests'; // Import the requests object which contains URLs for API requests
-import Trending from '../components/Trending'; // Import the Trending component for displaying trending TV shows or movies
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTrendingData, fetchRecommendedData } from '../redux/fetchDataSlice';
+import Row from '../components/Row';
+import Trending from '../components/Trending';
+import LoadingLayout from '../components/Skeleton.jsx'; // Assuming you have a Skeleton component for loading
+import requests from '../Requests.js';
 
 function Home() {
+  const dispatch = useDispatch();
+  const { trendingData, recommendedData, isLoading: isDataLoading } = useSelector((state) => state.data); // Fetching from fetchDataSlice
+  const { isLoading: isUserLoading } = useSelector((state) => state.app); // Fetching from userSlice
+
+  useEffect(() => {
+    dispatch(fetchTrendingData(requests.requestTrending));
+    dispatch(fetchRecommendedData(requests.requestRecommended)); // Adjust to your API request
+  }, [dispatch]);
+
+  const loading = isUserLoading || isDataLoading; // Combine user and data loading states
+
   return (
     <>
-      {/* Trending section - shows trending movies or TV shows */}
-      <Trending rowID='1' title='Trending' fetchURL={requests.requestTrending} />
-      
-      {/* Recommended for you section - displays recommended movies based on user preferences */}
-      <Row rowID='2' title='Recommended for you' fetchURL={requests.requestTopRatedmovie} />
-      
-      {/* Top Rated section - shows top-rated movies or TV shows */}
-      {/* <Row rowID='3' title='Top Rated' fetchURL={requests.requestTopRatedtv} /> */}
+      {loading ? (
+        <LoadingLayout /> // Render skeleton while loading
+      ) : (
+        <>
+          <Trending rowID='1' title='Trending' trendingData={trendingData} />
+          <Row rowID='2' title='Recommended for you' rowData={recommendedData} />
+        </>
+      )}
     </>
   );
 }
 
-export default React.memo(Home); // Wrap the Home component in React.memo to optimize performance by preventing unnecessary re-renders
+export default React.memo(Home);

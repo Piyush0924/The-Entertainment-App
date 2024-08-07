@@ -18,7 +18,7 @@ const SearchResults = () => {
                 <MovieList title={movieName} searchMovie={true} movies={searchedMovie} />
             ) : (
                 // If no movies are found, display a "Movie Not Found" message
-                <div className="flex justify-center mt-4 text-lg">Movie Not Found!!</div>
+                <div className="flex justify-center mt-4 text-gray-300 text-2xl">Movie Not Found!!</div>
             )}
         </div>
     );
